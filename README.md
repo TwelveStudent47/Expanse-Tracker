@@ -13,7 +13,7 @@ Egy iOS alkalmazás személyes pénzügyek nyomon követésére, SwiftUI-ban fej
 - **Swipe to delete** - Egyszerű tranzakció törlés
 
 ## 🚀 Képernyőképek
-
+<img src="https://github.com/user-attachments/assets/4a1cd9cc-f843-4183-8a5b-b8aa8c3af5d4">
 
 ### Főképernyő
 - Aktuális egyenleg megjelenítése
