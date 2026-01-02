@@ -15,7 +15,7 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.0' # Stabil, modern Xcode a Swift 5-höz
+          xcode-version: '16.2' # Stabil, modern Xcode a Swift 5-höz
 
       - name: Build and Archive
         # FONTOS: Cseréld ki a "NevedAppja" részeket a te projekted nevére!
