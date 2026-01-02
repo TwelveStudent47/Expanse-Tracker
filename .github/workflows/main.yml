@@ -2,26 +2,26 @@ name: Build iOS App
 
 on:
   push:
-    branches: [ "main" ] # Vagy "master", attól függ mi a fő ágad neve
+    branches: [ "main" ] # Ellenőrizd: ha a te fő ágad "master", írd át arra!
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-latest # Swift 5.0-hoz ez tökéletes
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.0' # Vagy amilyen verzió kell az appodhoz
+          xcode-version: '15.0' # Stabil, modern Xcode a Swift 5-höz
 
       - name: Build and Archive
-        # Itt cseréld ki a "NevedAppja.xcodeproj"-ot a te fájlod nevére!
+        # FONTOS: Cseréld ki a "NevedAppja" részeket a te projekted nevére!
         run: |
           xcodebuild archive \
-            -project Expense-Tracker.xcodeproj" \
+            -project "Expense-Tracker.xcodeproj" \
             -scheme "Expense-Tracker" \
             -archivePath "Build/Expense-Tracker.xcarchive" \
             -sdk iphoneos \
@@ -31,6 +31,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO
 
       - name: Export IPA
+        # Itt is cseréld a nevet!
         run: |
           mkdir Payload
           cp -r "Build/Expense-Tracker.xcarchive/Products/Applications/" Payload/
